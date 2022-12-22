@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Random Assembly</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Random Assembly</h1>
+    <form method="post">
+      <label for="words">Enter a list of words separated by commas:</label><br>
+      <input type="text" name="words" placeholder="chickens,pond,garden,house,swing set,goats"><br>
+      <input type="submit" value="Generate">
+    </form>
+    {% if result %}
+      <h2>Result:</h2>
+      <ul>
+        {% for phrase in result %}
+          <li>{{ phrase }}</li>
+        {% endfor %}
+      </ul>
+      <form method="post">
+        <input type="submit" name="regenerate" value="Regenerate">
+      </form>
+    {% endif %}
+  </body>
+</html>
